@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>TFT - Team Fight Builds </title>
+</head>
+
+<body>
+
+  <style>
+    @font-face {
+      font-family: "San Francisco";
+      font-weight: 400;
+      src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff");
+    }
+
+    * {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+      padding: 0;
+      margin: 0
+    }
+
+    body {
+      font-family: "San Francisco", -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 16px;
+      line-height: 24px;
+      background-color: #f2f2f2;
+    }
+
+    .container {
+      display: flex;
+    }
+
+    .class-list {
+      display: grid;
+      grid-template-rows: repeat(3,auto);
+      grid-template-columns: repeat(2,1fr);
+      grid-gap: 32px 16px;
+    }
+    .class-list__item h4 {
+      display: block;
+      width: 100%;
+      background-color: #f6f9fc;
+      
+    }
+    .class-list__item {
+      /* border-radius: 8px; */
+      border-top: 3px solid #6772e5;
+      position: relative;
+      background-color: #fff;
+      transition: transform .2s cubic-bezier(.215,.61,.355,1);
+      transform: translateY(0);
+      display: block;
+      margin-top: 1.5rem;
+    }
+
+    .class-list__item p,
+    .class-list__item h4 {
+      padding: 16px
+    }
+
+    .class-list__item h4 {
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 8px 10px;
+      height: 56px;
+      box-shadow: none;
+      text-align: center;
+      transition: .4s cubic-bezier(.215,.61,.355,1);
+      background: #f6f9fc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px 8px 0 0;
+    }
+    .class-list__item:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      transition: opacity .4s cubic-bezier(.215,.61,.355,1);
+      pointer-events: none;
+      box-shadow: 0 6px 12px -2px rgba(50,50,93,.25), 0 3px 7px -3px rgba(0,0,0,.3);
+      border-radius: 8px;
+    }
+    .list-images {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    .list-images img {
+      margin-top: 10px;
+      /* pointer-events: none; */
+      border-radius: 4px;
+      transform: scale(.9);
+      transition: transform .4s cubic-bezier(.215,.61,.355,1);
+    }
+    .list-images img:hover {
+      transform: scale(1);
+    }
+
+  </style>
+  <div class="container">
+    <section class="class-list">
+
+      <div class="class-list__item">
+        <h4>Demônio</h4>
+        <p>Posicionar múltiplos Demônios concede a eles uma chance de queimar a Mana do alvo, causando dano com base na
+          quantidade de Mana queimada. Essa chance aumenta com mais Demônios.</p>
+      </div>
+
+      <div class="class-list__item">
+        <h4>Dragão</h4>
+        <p>Posicionar ambos os Dragões torna-os imunes a dano de habilidade.</p>
+      </div>
+
+      <div class="class-list__item">
+        <h4>Exilado</h4>
+        <p>Exilados começam o combate com um escudo se nenhum outro Campeão estiver adjacente a eles no início do
+          combate.</p>
+      </div>
+
+      <div class="class-list__item">
+        <h4>Glacial</h4>
+        <p>Posicionar vários Glaciais concede aos ataques deles uma chance de atordoar o alvo, aumentando com mais
+          Glaciais.
+        </p>
+      </div>
+
+      <div class="class-list__item">
+        <h4>Robô</h4>
+        <p>Robôs começam o combate com Mana cheia.</p>
+      </div>
+
+      <div class="class-list__item">
+        <h4>Imperial</h4>
+        <p>Posicionar múltiplos Imperiais concede o dobro de dano a um Imperial aleatório.</p>
+        <p>Posicionar todos os Imperiais concede o dobro de dano a todos eles.</p>
+      </div>
+
+      <div class="class-list__item">
+        <h4>Nobre</h4>
+        <p>Posicionar múltiplos Nobres concede a um Campeão aleatório Armadura e ataques que curam.</p>
+        <p>Posicionar todos os Nobres concede Armadura e ataques que curam para toda a equipe.</p>
+      </div>
+
+      <div class="class-list__item">
+        <h4>Ninja</h4>
+        <p>Posicionar exatamente um Ninja concede a ele Dano de Ataque.</p>
+        <p>Posicionar todos os Ninjas concede a todos eles ainda mais Dano de Ataque.</p>
+      </div>
+
+      <div class="class-list__item">
+        <h4>Pirata</h4>
+        <p>Posicionar Piratas suficientes concede a você ouro adicional ao final de cada rodada.</p>
+      </div>
+
+      <div class="class-list__item">
+        <h4>Fantasma</h4>
+        <p>Posicionar Fantasmas suficientes amaldiçoa um inimigo aleatório no início do combate, reduzindo a Vida      inicial
+          desse inimigo.</p>
+      </div>
+
+      <div class="class-list__item">
+        <h4>Selvagem</h4>
+        <p>Posicionar múltiplos Selvagens concede a eles Velocidade de Ataque conforme atacam.</p>
+        <p>Posicionar Selvagens suficientes concede Velocidade de Ataque a toda a sua equipe conforme ela ataca.</p>
+      </div>
+
+      <div class="class-list__item">
+        <h4>Vastinata</h4>
+        <p>Posicionar Vastinatas suficientes permite que sua equipe ignore parte da Armadura de seus alvos.</p>
+      </div>
+      <div class="class-list__item">
+
+        <h4>Yordle</h4>
+        <p>Posicionar múltiplos Yordles faz com que ataques contra eles errem às vezes, aumentando a chance com mais
+          Yordles.
+        </p>
+      </div>
+    </section>
+  </div>
+
+  <div class="list-images">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Varus.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Elise.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Morgana.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Evelynn.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Aatrox.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Brand.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Swain.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Shyvana.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/AurelionSol.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Yasuo.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Braum.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Lissandra.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Ashe.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Volibear.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Sejuani.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Anivia.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Blitzcrank.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Darius.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Katarina.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Draven.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Swain.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Fiora.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Garen.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Vayne.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Lucian.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Leona.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Kayle.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Shen.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Zed.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Kennen.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Akali.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Graves.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Pyke.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Gangplank.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/MissFortune.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Mordekaiser.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Kindred.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Karthus.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Warwick.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Ahri.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Nidalee.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Rengar.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Gnar.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Khazix.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Kassadin.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/RekSai.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Chogath.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Tristana.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Lulu.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Poppy.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Veigar.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Kennen.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Gnar.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Khazix.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Pyke.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Zed.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Katarina.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Evelynn.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Rengar.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Akali.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Fiora.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Shen.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Aatrox.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Gangplank.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Draven.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Yasuo.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Warwick.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/RekSai.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Blitzcrank.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Volibear.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Chogath.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Lissandra.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Brand.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Kennen.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Anivia.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Braum.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Leona.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Graves.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Tristana.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Lucian.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Gangplank.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/MissFortune.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Darius.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Garen.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Mordekaiser.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Poppy.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Sejuani.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Kayle.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Vayne.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Varus.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Ashe.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Kindred.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Nidalee.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Elise.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Shyvana.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Gnar.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Swain.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Kassadin.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Ahri.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Lulu.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Veigar.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/Morgana.png"
+      alt="">
+    <img
+      src="https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/articles/2019/june/tftcompendium/Champions/AurelionSol.png"
+      alt="">
+  </div>
+
+</body>
+
+</html>
